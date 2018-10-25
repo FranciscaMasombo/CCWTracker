@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const subs = require("./routes/subs");
+const subs = require("./routes/submissions");
 
 var app = express();
 
@@ -46,16 +46,16 @@ app.use('/users', usersRouter);
 
 // Custom Routes
 //gets
-app.get('/subs', subs.displayAll);
-app.get('/subs/:id', subs.findoneSub);
-app.get('/subs/location/:location', subs.findByLocation);
+app.get('/submissions', subs.displayAll);
+app.get('/submission/:id', subs.findSubmissionById);
+app.get('/findByLocation/:location', subs.findByLocation);
 app.get('/all', subs.displayAllByDate);
 //posts
-app.post('/subs',subs.addsub);
+app.post('/add-submission',subs.addSubmissions);
 //puts
-app.put('/subs/:id',subs.updatesub);
+app.put('/update/:id',subs.updateSubmission);
 //deletes
-app.delete('/subs/:id',subs.deleteSub);
+app.delete('/delete/:id',subs.deleteSubmission);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
