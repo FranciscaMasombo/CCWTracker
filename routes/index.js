@@ -59,6 +59,7 @@ router.get('/users', function (req, res) {
     });
 });
 
+
 router.put('/updatePassword/:id', function (req, res) {
     User.findByIdAndUpdate(req.params.id, req.body).then(function (err) {
         if (err) {
