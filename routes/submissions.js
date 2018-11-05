@@ -76,10 +76,12 @@ router.findSubmissionById = (req, res) => {
   else {
     res.setHeader('Content-Type', 'application/json')
     Sub.find({'_id': req.params.id}, function (err, sub) {
-      if (err != null)
+      if (err != null){
         res.json({message: 'Sorry but we cant find this submission'})
-      else
+      }
+      else{
         res.send(JSON.stringify(sub, null, 5))
+      }
     })
   }
 }
@@ -92,11 +94,12 @@ router.findByLocation = (req, res) => {
   }
   else {
     res.setHeader('Content-Type', 'application/json')
-    Sub.find({location: req.params.location}, 'location name  age', function (err, sub) {
-      if (err != null)
-        return res.status(400).send()
+    Sub.find({location: req.params.location}, 'location name  age', function (err, subs) {
+      if (err != null) {
+       return res.status(401).send();
+      }
       else
-        res.send(JSON.stringify(sub, null, 5))
+        res.send(JSON.stringify(subs, null, 3))
     })
   }
 }

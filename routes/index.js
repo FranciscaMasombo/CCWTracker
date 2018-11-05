@@ -70,13 +70,10 @@ router.put('/updateUserInfo/:id', function (req, res) {
     res.json({message: 'You need to login first'});
   }
   else
-    User.findByIdAndUpdate(req.params.id, req.body).then(function (err) {
-        if (err) {
-            res.json({message: ' error'});
-        }
-       else {
+    User.findByIdAndUpdate(req.params.id, req.body).then(function () {
+
             res.json({message: 'Updated '});
-        }
+
 })
 });
 
