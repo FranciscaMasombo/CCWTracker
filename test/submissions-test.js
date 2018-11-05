@@ -7,11 +7,12 @@ let chaiHttp = require('chai-http')
 let server = require('../bin/www')
 let expect = chai.expect
 var mongodbUri ='mongodb://admin:welcome1@ds135653.mlab.com:35653/wwtdb';
-mongoose.connect(mongodbUri);
+mongoose.connect(mongodbUri, { useNewUrlParser: true });
 
 
 chai.use(chaiHttp)
 let _ = require('lodash')
+
 //Connection to the db before test
 before(function (done) {
   mongoose.connection.once('open', function () {
@@ -21,22 +22,12 @@ before(function (done) {
     console.log('Connection Error',error );
   })
 });
-
-
 describe('Submissions', function () {
 
-// find Submissions from the database
-  describe('Find Submissions made', function () {
-    it('Find all the submissions made', function (done) {
-      sub.find().then(function (res) {
-        assert(res);
-        done();
-      })
-    })
-  })
+
   // listSubmissions works
-  describe('GET /Submissions', () => {
-    it('should return all Submissions made ', function (done) {
+  describe('GET/', () => {
+    it('Check if end point /listSubmissions ', function (done) {
       chai.request(server)
         .get('/listSubmissions')
         .end((err, res) => {
@@ -45,6 +36,14 @@ describe('Submissions', function () {
         })
     })
   })
-
+// find Submissions from the database
+  describe('Find all Submissions made in the database', function () {
+    it('Find all the submissions made in database', function (done) {
+      sub.find().then(function (res) {
+        assert(res);
+        done();
+      })
+    })
+  })
 
 })
