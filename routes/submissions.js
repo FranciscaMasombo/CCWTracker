@@ -36,18 +36,14 @@ router.addSubmissions = (req, res) => {
 
 //get a list of all the submissions
 router.displayAll = (req, res) => {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'})
-  }
-  else {
+
     res.setHeader('Content-Type', 'application/json')
     Sub.find(function (err, subs) {
       if (err)
         res.send(err)
       res.send(JSON.stringify(subs, null, 3))
     })
-  }
+
 }
 
 router.displayAllByDate = (req, res) => {
