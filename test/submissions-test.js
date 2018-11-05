@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const assert = require('assert');
+const sub = require('../models/User');
 mongoose.Promise = global.Promise;
 let chai = require('chai')
 let chaiHttp = require('chai-http')
@@ -20,9 +22,20 @@ before(function (done) {
   })
 });
 
-// find Submissions
+
 describe('Submissions', function () {
-   describe('GET /Submissions', () => {
+
+// find Submissions from the database
+  describe('Find Submissions made', function () {
+    it('Find all the submissions made', function (done) {
+      sub.find().then(function (res) {
+        assert(res);
+        done();
+      })
+    })
+  })
+  // listSubmissions works
+  describe('GET /Submissions', () => {
     it('should return all Submissions made ', function (done) {
       chai.request(server)
         .get('/listSubmissions')
