@@ -4,11 +4,11 @@ let router = express.Router()
 
 //CREATE
 router.addSubmissions = (req, res) => {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'})
-  }
-  else {
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'})
+  // }
+  // else {
     res.setHeader('Content-Type', 'application/json')
     const sub = new Sub()
     sub.name = req.body.name// the requested value
@@ -30,7 +30,7 @@ router.addSubmissions = (req, res) => {
 
       }
     })
-  }
+  // }
 }
 //READ
 
