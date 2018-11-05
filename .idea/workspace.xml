@@ -18,10 +18,11 @@
     <session id="612946099">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="3" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.2" value="2" />
@@ -29,7 +30,7 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -123,7 +124,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="128">
               <caret line="78" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
@@ -411,7 +412,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
+    <option name="x" value="769" />
+    <option name="y" value="-11" />
     <option name="width" value="981" />
     <option name="height" value="1092" />
   </component>
@@ -674,7 +676,8 @@
       <workItem from="1540455174042" duration="21439000" />
       <workItem from="1540551537563" duration="485000" />
       <workItem from="1540558272269" duration="20650000" />
-      <workItem from="1541413132132" duration="2065000" />
+      <workItem from="1541413132132" duration="2195000" />
+      <workItem from="1541415602719" duration="247000" />
     </task>
     <task id="LOCAL-00001" summary="the delete is done">
       <created>1539937423689</created>
@@ -767,16 +770,23 @@
       <option name="project" value="LOCAL" />
       <updated>1540585263710</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="done assignment one all end points are working">
+      <created>1541415474436</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1541415474436</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147863000" />
+    <option name="totallyTimeSpent" value="148240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2031746" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2027027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -791,7 +801,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3277027" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50158733" side_tool="true" weight="0.5202703" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49920633" visible="true" weight="0.5929054" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49920633" visible="true" weight="0.59183675" />
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.46724138" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1051,7 +1061,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="128">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
