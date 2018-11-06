@@ -22,8 +22,7 @@ router.addSubmissions = (req, res) => {
     sub.date = req.body.date// the requested value
     sub.save(function (err) {
       if (err)
-      // return res.status(401).send();
-        res.json({message: 'Please make sure that you have entered all fields', errmsg: err})
+      return res.status(404).json({message: 'Please make sure that you have entered all fields', errmsg: err})
       else {
         // success message
         res.json({message: 'You submission has been add to the list well done', name: sub.name})

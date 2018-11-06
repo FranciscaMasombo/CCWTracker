@@ -62,6 +62,9 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logger('dev'));
+}
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
