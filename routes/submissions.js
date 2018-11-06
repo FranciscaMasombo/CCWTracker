@@ -112,7 +112,7 @@ router.updateSubmission = (req, res) => {
     if (err)
       res.status(400).json({message: 'Please Try Again'})
     else
-      res.status(200).json({message: 'done'})
+      res.status(200).json({message: 'Updated'})
   })
 
   // }

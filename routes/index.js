@@ -51,16 +51,16 @@ router.get('/logout', function (req, res) {
 });
 
 router.get('/list-users', function (req, res) {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'});
-  }
-  else
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'});
+  // }
+  // else
     User.find(function (err, subs) {
         if (err!= null)
             res.send(err);
         else
-        res.send(JSON.stringify(subs, null, 3));
+          res.status(200).send(JSON.stringify(subs, null, 3));
     });
 });
 
@@ -79,16 +79,16 @@ router.put('/updateUserInfo/:id', function (req, res) {
 
 
 router.delete('/deleteUser/:id', function(req, res)  {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'});
-  }
-  else
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'});
+  // }
+  // else
   User.findByIdAndRemove(req.params.id, function (err) {
     if (err)
       res.json({message: 'The user has not been deleted ', errmsg: err});
     else
-      res.json({message: 'Successfully Deleted!'});
+      res.status(200).json({message: 'Successfully Deleted!'});
   });
 });
 

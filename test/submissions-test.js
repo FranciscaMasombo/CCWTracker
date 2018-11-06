@@ -27,7 +27,7 @@ before(function (done) {
 })
 
 describe('Submissions', function () {
-  beforeEach(function () {
+  beforeEach(function (done) {
     sub.remove({}, function (err) {
       if (err)
         done(err)
@@ -43,10 +43,12 @@ describe('Submissions', function () {
           height: 78,
           location: 'dublin',
           date: '2018-09-12'
-        })
-        subs.save().then(function () {
-          assert(subs.isNew === false)
-
+        }).save(function (err) {
+          if (err)
+            console.log(err);
+          else {
+            done();
+          }
         })
       }
     })
@@ -58,6 +60,30 @@ describe('Submissions', function () {
     })
   })
 
+  describe('PUT update-submission/:id', function () {
+    it('should update one submission in database ', function (done) {
+      var update = {'name': 'Franco'}
+      chai.request(server)
+        .put('/update-submission/5be0ac62fb6fc061430eb239')
+        .send(update)
+        .end(function (err, res) {
+          expect(res).to.have.status(200)
+          expect(res.body).to.have.property('message').equal('Updtated')
+          done()
+        })
+    })
+    it('should return an error message and a 400 error', function (done) {
+      var update = {'name': 'Franco'}
+      chai.request(server)
+        .put('/update-submission//5be0ac62fb6fc061430eb')
+        .send(update)
+        .end(function (err, res) {
+          expect(res).to.have.status(400)
+          expect(res.body).to.have.property('message').equal('Please Try Again')
+          done()
+        })
+    })
+  })
   describe('Get/listOneSubmission/:id', function () {
     it('should find one submission by id', function (done) {
       chai.request(server)
@@ -102,50 +128,47 @@ describe('Submissions', function () {
         })
     })
   })
-  describe('PUT update-submission/:id', function () {
-    it('should update one submission in database ', function (done) {
-      var update = {'name': 'Franco'}
+
+  describe('Get/listSubmissions', function () {
+    it('Find all the submissions /listSubmissions end point', function (done) {
       chai.request(server)
-        .put('/update-submission/5be0ac62fb6fc061430eb239')
-        .send(update)
+        .get('/listSubmissions')
         .end(function (err, res) {
           expect(res).to.have.status(200)
-          expect(res.body).to.have.property('message').equal('done')
-          done()
+          expect(res.body).to.be.a('array')
+          expect(res.body.length).to.equal(1)
+          var result = _.map(res.body, function (submission) {
+
+            return {
+              _id: submission._id,
+              name: submission.name,
+              age: submission.age,
+              gender: submission.gender,
+              startWeight: submission.startWeight,
+              goalWeight: submission.goalWeight,
+              currentWeight: submission.currentWeight,
+              height: submission.height,
+              location: submission.location,
+              date: submission.date
+            }
+          })
+          expect(result).to.include({
+              _id: '5be0ac62fb6fc061430eb239',
+              name: 'Fran',
+              age: 21,
+              gender: 'male',
+              startWeight: 245,
+              goalWeight: 78,
+              currentWeight: 90,
+              height: 78,
+              location: 'dublin',
+              date: '2018-09-12T00:00:00.000Z'
+            }
+          )
         })
-    })
-    it('should return an error message and a 400 error', function () {
-      var update = {'name': 'Franco'}
-      chai.request(server)
-        .put('/update-submission/')
-        .send(update)
-        .end(function (err, res) {
-          expect(res).to.have.status(400)
-          expect(res.body).to.have.property('message').equal('Please Try Again')
-          done()
-        })
+      done()
     })
   })
-  describe('dELETE /delete-submission/:id', function () {
-    it('should delete a submission ', function (done) {
-      chai.request(server)
-        .delete('/delete-submission/5be0ac62fb6fc061430eb239')
-        .end(function (err, res) {
-          expect(res).to.have.status(200)
-          done()
-        })
-    })
-    it('should return an error message and a 400 error', function (done) {
-      chai.request(server)
-        .delete('/delete-submission/5ddfsb6fc061430eb239')
-        .end(function (err, res) {
-          expect(res).to.have.status(400)
-          done()
-        })
-    })
-
-  })
-
   describe('POST/add-submission', function () {
     it('should add to database', function (done) {
       var sub = {
@@ -189,45 +212,25 @@ describe('Submissions', function () {
         })
     })
   })
-  describe('Get/listSubmissions', function () {
-    it('Find all the submissions /listSubmissions end point', function (done) {
+
+  describe('DELETE /delete-submission/:id', function () {
+    it('should delete ', function (done) {
       chai.request(server)
-        .get('/listSubmissions')
+        .delete('/delete-submission/5be0ac62fb6fc061430eb239')
         .end(function (err, res) {
-          expect(res).to.have.status(200)
-          expect(res.body).to.be.a('array')
-          expect(res.body.length).to.equal(1)
-          var result = _.map(res.body, function (submission) {
-
-            return {
-              _id: submission._id,
-              name: submission.name,
-              age: submission.age,
-              gender: submission.gender,
-              startWeight: submission.startWeight,
-              goalWeight: submission.goalWeight,
-              currentWeight: submission.currentWeight,
-              height: submission.height,
-              location: submission.location,
-              date: submission.date
-            }
-          })
-          expect(result).to.include({
-              _id: '5be0ac62fb6fc061430eb239',
-              name: 'Fran',
-              age: 21,
-              gender: 'male',
-              startWeight: 245,
-              goalWeight: 78,
-              currentWeight: 90,
-              height: 78,
-              location: 'dublin',
-              date: '2018-09-12T00:00:00.000Z'
-            }
-          )
-        })
-      done()
-    })
-  })
-
+          expect(res).to.have.status(200);
+          done();
+        });
+    });
+  });
+  it('should return an error message and a 400 error', function (done) {
+    chai.request(server)
+      .delete('/delete-submission/5be0ac62fb6fc06143')
+      .end(function (err, res) {
+        expect(res).to.have.status(400);
+        expect(res.body).to.have.property('message').equal('The submission has not been deleted ');
+        done();
+      });
+  }
+  );
 })
