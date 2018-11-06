@@ -114,7 +114,17 @@ describe('Submissions', function () {
           done()
         })
     })
-
+    it('should return an error message and a 400 error', function () {
+      var update = {'name': 'Franco'}
+      chai.request(server)
+        .put('/update-submission/')
+        .send(update)
+        .end(function (err, res) {
+          expect(res).to.have.status(400)
+          expect(res.body).to.have.property('message').equal('Please Try Again')
+          done()
+        })
+    })
   })
 
   describe('POST/add-submission', function () {

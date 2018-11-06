@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/test/submissions-test.js" description="done()" line="199" />
+    <bookmark url="file://$PROJECT_DIR$/test/submissions-test.js" description="done()" line="209" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8079017c-3369-4f85-bb0d-4080c59b2ef6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/submissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/submissions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/submissions-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/submissions-test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -126,16 +126,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3070" />
+          <entry key="js" value="3218" />
           <entry key="json" value="48" />
-          <entry key="txt" value="90" />
+          <entry key="txt" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="48" />
-          <entry key="JavaScript" value="3070" />
-          <entry key="PLAIN_TEXT" value="90" />
+          <entry key="JavaScript" value="3218" />
+          <entry key="PLAIN_TEXT" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -154,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/submissions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="114" column="42" selection-start-line="114" selection-start-column="42" selection-end-line="114" selection-end-column="42" />
+            <state relative-caret-position="453">
+              <caret line="118" column="1" lean-forward="true" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -172,13 +172,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/submissions-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="82">
+              <caret line="119" column="33" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
               <folding>
-                <element signature="e#1388#1458#0" />
                 <element signature="e#1580#2832#0" />
                 <element signature="e#2907#3094#0" />
-                <element signature="e#3131#3535#0" />
                 <element signature="e#4227#4750#0" />
                 <element signature="e#4823#5320#0" />
                 <element signature="e#2902#4058#0" />
@@ -515,11 +513,10 @@
       <path value="$PROJECT_DIR$/public/node_modules/ws/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+    <option name="width" value="1148" />
+    <option name="height" value="1091" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -557,7 +554,6 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ToolWindowTerminal.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.12.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -956,7 +952,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541505896826</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="no erros in the first 6 tests">
+      <created>1541510532989</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1541510532989</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update test done">
+      <created>1541510618576</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1541510618576</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -971,12 +981,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198752000" />
+    <option name="totallyTimeSpent" value="200942000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="-7" y="0" width="765" height="727" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87413794" visible="true" weight="0.13751987" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87413794" visible="true" weight="0.23763736" />
       <window_info id="Favorites" order="1" sideWeight="0.12586206" side_tool="true" weight="0.59902596" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="npm" order="3" side_tool="true" weight="0.3298887" />
@@ -992,7 +1002,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3265306" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50158733" side_tool="true" weight="0.51870745" />
       <window_info anchor="bottom" id="REST Client" order="11" weight="0.46724138" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49920633" visible="true" weight="0.6819728" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49920633" visible="true" weight="0.6793103" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24939467" />
@@ -1045,7 +1055,8 @@
     <MESSAGE value="done assignment one all end points are working" />
     <MESSAGE value="testing for /add-submission" />
     <MESSAGE value="no erros in the first 6 tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="no erros in the first 6 tests" />
+    <MESSAGE value="update test done" />
+    <option name="LAST_COMMIT_MESSAGE" value="update test done" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/models/wwt.js" />
@@ -1287,13 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-283">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -1303,20 +1307,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/submissions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="114" column="42" selection-start-line="114" selection-start-column="42" selection-end-line="114" selection-end-column="42" />
+        <state relative-caret-position="453">
+          <caret line="118" column="1" lean-forward="true" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-283">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/submissions-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="82">
+          <caret line="119" column="33" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
           <folding>
-            <element signature="e#1388#1458#0" />
             <element signature="e#1580#2832#0" />
             <element signature="e#2907#3094#0" />
-            <element signature="e#3131#3535#0" />
             <element signature="e#4227#4750#0" />
             <element signature="e#4823#5320#0" />
             <element signature="e#2902#4058#0" />
