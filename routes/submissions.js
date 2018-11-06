@@ -121,18 +121,18 @@ router.updateSubmission = (req, res) => {
 //DELETE
 // delete on submistion
 router.deleteSubmission = (req, res) => {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'})
-  }
-  else {
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'})
+  // }
+  // else {
     Sub.findByIdAndRemove(req.params.id, function (err) {
       if (err)
-        res.json({message: 'The submission has not been deleted ', errmsg: err})
+        res.status(400).json({message: 'The submission has not been deleted ', errmsg: err})
       else
-        res.json({message: 'Successfully Deleted!'})
+        res.status(200).json({message: 'Successfully Deleted!'})
     })
-  }
+  // }
 }
 
 module.exports = router
