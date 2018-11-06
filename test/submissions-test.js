@@ -131,18 +131,18 @@ describe('Submissions', function () {
       chai.request(server)
         .delete('/delete-submission/5be0ac62fb6fc061430eb239')
         .end(function (err, res) {
-          expect(res).to.have.status(200);
-           done();
+          expect(res).to.have.status(200)
+          done()
         })
     })
     it('should return an error message and a 400 error', function (done) {
       chai.request(server)
         .delete('/delete-submission/5ddfsb6fc061430eb239')
         .end(function (err, res) {
-          expect(res).to.have.status(400);
-            done();
-        });
-    });
+          expect(res).to.have.status(400)
+          done()
+        })
+    })
 
   })
 
@@ -229,7 +229,5 @@ describe('Submissions', function () {
       done()
     })
   })
-
-
 
 })
