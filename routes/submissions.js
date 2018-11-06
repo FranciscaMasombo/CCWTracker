@@ -85,11 +85,11 @@ router.findSubmissionById = (req, res) => {
 
 // search for a submission by location
 router.findByLocation = (req, res) => {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'})
-  }
-  else {
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'})
+  // }
+  // else {
     res.setHeader('Content-Type', 'application/json')
     Sub.find({location: req.params.location}, 'location name  age', function (err, subs) {
       if (err != null) {
@@ -98,7 +98,7 @@ router.findByLocation = (req, res) => {
       else
         res.send(JSON.stringify(subs, null, 3))
     })
-  }
+
 }
 
 //UPDATE

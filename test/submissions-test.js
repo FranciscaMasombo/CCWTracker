@@ -29,11 +29,58 @@ describe('Submissions', function () {
 
   beforeEach(function () {
     // sub.remove({_id: '5be0ac62fb6fc061430eb239'}, function (err) {
+    if (err)
+      done(err)
+    else {
+      var subs = new sub({
+        _id: '5be0ac62fb6fc061430eb239',
+        name: 'Fran',
+        age: 21,
+        gender: 'male',
+        startWeight: 245,
+        goalWeight: 78,
+        currentWeight: 90,
+        height: 78,
+        location: 'dublin',
+        date: '2018-09-12'
+      })
+      subs.save().then(function () {
 
-        if (err)
-          done(err)
-        else {
-          var subs = new sub({
+        assert(subs.isNew === false)
+      })
+    }
+  })
+})
+it('Is there anything in the database', function (done) {
+  sub.find().then(function (res) {
+    assert(res)
+    done()
+  })
+})
+describe('Get/listSubmissions', function () {
+  it('Find all the submissions made end point', function (done) {
+    chai.request(server)
+      .get('/listSubmissions')
+      .end(function (err, res) {
+        expect(res).to.have.status(200)
+        expect(res.body).to.be.a('array')
+        expect(res.body.length).to.equal(7)
+        var result = _.map(res.body, function (submission) {
+          return {
+            _id: submission._id,
+            name: submission.name,
+            age: submission.age,
+            gender: submission.gender,
+            startWeight: submission.startWeight,
+            goalWeight: submission.goalWeight,
+            currentWeight: submission.currentWeight,
+            height: submission.height,
+            location: submission.location,
+            date: submission.date
+          }
+        })
+        expect(result).to.include(
+          {
             _id: '5be0ac62fb6fc061430eb239',
             name: 'Fran',
             age: 21,
@@ -43,107 +90,78 @@ describe('Submissions', function () {
             currentWeight: 90,
             height: 78,
             location: 'dublin',
-            date: '2018-09-12'
-          })
-          subs.save().then(function () {
-
-            assert(subs.isNew === false)
-          })
-        }
-      }
-    )
+            date: '2018-09-12T00:00:00.000Z'
+          }
+        )
+      })
+    done()
   })
-  it('Is there anything in the database', function (done) {
-    sub.find().then(function (res) {
-      assert(res)
-      done()
-    })
+})
+describe('Get/listOneSubmission/:id', function () {
+  it('should return one submission by id 5be0ac62fb6fc061430eb239', function (done) {
+    chai.request(server)
+      .get('/listOneSubmission/5be0ac62fb6fc061430eb239')
+      .end(function (err, res) {
+        expect(res).to.have.status(200)
+        expect(res.body).to.be.a('array')
+        expect(res.body.length).to.equal(1)
+        var result = _.map(res.body, function (submission) {
+          return {
+            _id: submission._id, name: submission.name, age: submission.age, gender: submission.gender,
+            startWeight: submission.startWeight, goalWeight: submission.goalWeight,
+            currentWeight: submission.currentWeight, height: submission.height,
+            location: submission.location, date: submission.date
+          }
+        })
+        expect(result).to.include(
+          {
+            _id: '5be0ac62fb6fc061430eb239',
+            name: 'Fran',
+            age: 21,
+            gender: 'male',
+            startWeight: 245,
+            goalWeight: 78,
+            currentWeight: 90,
+            height: 78,
+            location: 'dublin',
+            date: '2018-09-12T00:00:00.000Z'
+          }
+        )
+        done()
+      })
   })
-// find Submissions from the database
-  describe('Get/listSubmissions', function () {
-    it('Find all the submissions made end point', function (done) {
-      chai.request(server)
-        .get('/listSubmissions')
-        .end(function (err, res) {
-          expect(res).to.have.status(200)
-          expect(res.body).to.be.a('array')
-          expect(res.body.length).to.equal(7)
-          var result = _.map(res.body, function (submission) {
-            return {
-              _id: submission._id,
-              name: submission.name,
-              age: submission.age,
-              gender: submission.gender,
-              startWeight: submission.startWeight,
-              goalWeight: submission.goalWeight,
-              currentWeight: submission.currentWeight,
-              height: submission.height,
-              location: submission.location,
-              date: submission.date
-            }
-          })
-          expect(result).to.include(
-            {
-              _id: '5be0ac62fb6fc061430eb239',
-              name: 'Fran',
-              age: 21,
-              gender: 'male',
-              startWeight: 245,
-              goalWeight: 78,
-              currentWeight: 90,
-              height: 78,
-              location: 'dublin',
-              date: '2018-09-12T00:00:00.000Z'
-            }
-          )
-        })
-      done()
-    })
+  it('should return an error message and a 404 error', function (done) {
+    chai.request(server)
+      .get('/listSubmissions/00000000080000')
+      .end(function (err, res) {
+        expect(res).to.have.status(404)
+        done()
+      })
   })
-
-  describe('Get/listOneSubmission/:id', function () {
-    it('should return one submission by id 5be0ac62fb6fc061430eb239', function (done) {
-      chai.request(server)
-        .get('/listOneSubmission/5be0ac62fb6fc061430eb239')
-        .end(function (err, res) {
-          expect(res).to.have.status(200)
-          expect(res.body).to.be.a('array')
-          expect(res.body.length).to.equal(1)
-          var result = _.map(res.body, function (submission) {
-            return {
-              _id: submission._id, name: submission.name, age: submission.age, gender: submission.gender,
-              startWeight: submission.startWeight, goalWeight: submission.goalWeight,
-              currentWeight: submission.currentWeight, height: submission.height,
-              location: submission.location, date: submission.date
-            }
-          })
-          expect(result).to.include(
-            {
-              _id: '5be0ac62fb6fc061430eb239',
-              name: 'Fran',
-              age: 21,
-              gender: 'male',
-              startWeight: 245,
-              goalWeight: 78,
-              currentWeight: 90,
-              height: 78,
-              location: 'dublin',
-              date: '2018-09-12T00:00:00.000Z'
-            }
-          )
-          done()
-        })
-    })
-
-    it('should return an error message and a 404 error', function (done) {
-      chai.request(server)
-        .get('/listSubmissions/00000000080000')
-        .end(function (err, res) {
-          expect(res).to.have.status(404)
-          done()
-        })
-    })
-  // })
 
 })
 
+describe('POST /add-submission', function () {
+  it('should add to database', function (done) {
+    var sub = {
+     "name" : "sam",
+      "age": 21,
+     "gender" : "male",
+      "startWeight": 245,
+      "goalWeight": 78,
+      "currentWeight": 90,
+      "height": 78,
+      "location": "dublin",
+      "date": "2018-09-12"
+    }
+    chai.request(server)
+      .post('/add-submission')
+      .send(sub)
+      .end(function (err, res) {
+      expect(res).to.have.status(200);
+      expect(res.body).to.have.property('message').equal('You submission has been add to the list well done');
+      done();
+    });
+  });
+
+})
