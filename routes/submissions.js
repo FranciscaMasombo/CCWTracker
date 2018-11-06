@@ -65,21 +65,22 @@ router.displayAllByDate = (req, res) => {
 
 //get a single submission
 router.findSubmissionById = (req, res) => {
-  if (!req.session.user) {
-    // return res.status(401).send();
-    res.json({message: 'You need to login first'})
-  }
-  else {
+  // if (!req.session.user) {
+  //   // return res.status(401).send();
+  //   res.json({message: 'You need to login first'})
+  // }
+  // else {
     res.setHeader('Content-Type', 'application/json')
     Sub.find({'_id': req.params.id}, function (err, sub) {
       if (err != null){
-        res.json({message: 'Sorry but we cant find this submission'})
+        res.status(404).json({message:'Sorry but we cant find this submission'});
       }
       else{
-        res.send(JSON.stringify(sub, null, 5))
+
+       res.status(200).send(JSON.stringify(sub, null, 5))
       }
     })
-  }
+  // }
 }
 
 // search for a submission by location
